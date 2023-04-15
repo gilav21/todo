@@ -1,0 +1,39 @@
+<div class="all-lists">
+  <div class="list-wrapper" dndDropzone (dndDrop)="onDrop(firstItems, $event)">
+    <h2>First List</h2>
+    <div class="placeholder-div" dndPlaceholderRef></div>
+    <div class="first-list-item" *ngFor="let firstItem of firstItems" [dndDraggable]="firstItem"
+      [dndEffectAllowed]="firstItem.effectAllowed" (dndMoved)="onDragged(firstItem, firstItems, 'move')">
+      <div class="list-item">
+        <div class="list-item__title">{{firstItem.content}}</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="list-wrapper" dndDropzone (dndDrop)="onDrop(secondItems, $event)">
+    <h2>Second List</h2>
+    <div class="placeholder-div" dndPlaceholderRef></div>
+
+
+
+    <div class="second-list-item" *ngFor="let secondItem of secondItems" [dndDraggable]="secondItem"
+      [dndEffectAllowed]="secondItem.effectAllowed" (dndMoved)="onDragged(secondItem, secondItems, 'move')">
+      <div class="list-item">
+        <div class="list-item__title">{{secondItem.content}}</div>
+      </div>
+    </div>
+
+
+    <div class="inner-list-wrapper" dndDropzone (dndDrop)="onDrop(innerSecondItems, $event)">
+      <h2>Inner Second List</h2>
+      <div class="placeholder-div" dndPlaceholderRef></div>
+      <div class="inner-list-item" *ngFor="let innerSecondItem of innerSecondItems" [dndDraggable]="innerSecondItem"
+      [dndEffectAllowed]="innerSecondItem.effectAllowed" (dndMoved)="onDragged(innerSecondItem, innerSecondItems, 'move')">
+      <div class="list-item">
+        <div class="list-item__title">{{innerSecondItem.content}}</div>
+      </div>
+    </div>
+
+  </div>
+</div>
